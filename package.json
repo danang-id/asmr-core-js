@@ -1,7 +1,7 @@
 {
 	"name": "@danang-id/asmr-core-js",
 	"description": "asmr core library for JavaScript.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "BSD-3-Clause",
 	"author": {
 		"name": "Danang Galuh Tegar Prasetyo",
@@ -13,17 +13,24 @@
 		"url": "https://github.com/danang-id/asmr-core-js.git"
 	},
 	"main": "index.js",
+	"typings": "index.d.ts",
 	"files": [
-		"common",
-		"entities",
-		"enums",
-		"release",
-		"request",
-		"response",
-		"tools"
+		"README.md",
+		"LICENSE",
+		"index.js",
+		"index.d.ts",
+		"/common",
+		"/entities",
+		"/enums",
+		"/release",
+		"/request",
+		"/response",
+		"/tools"
 	],
 	"scripts": {
-		"build": "tsc"
+		"build": "yarn build:app && yarn build:typing",
+		"build:app": "tsc --declaration false",
+		"build:typing": "tsc --declaration --emitDeclarationOnly --outFile index.d.ts"
 	},
 	"devDependencies": {
 		"@types/node": "^17.0.6",
@@ -33,5 +40,8 @@
 	"engines": {
 		"node": ">=14"
 	},
-	"packageManager": "yarn@3.1.1"
+	"packageManager": "yarn@3.1.1",
+	"publishConfig": {
+		"registry":"https://npm.pkg.github.com"
+	}
 }
